@@ -35,9 +35,9 @@ RUN python -m pip install "setuptools<81" wheel ninja fvcore iopath "numpy<2"
 RUN python -m pip install --no-build-isolation \
         "git+https://github.com/facebookresearch/pytorch3d.git@stable"
 
-# nvdiffrast (PSHuman/most mesh-rendering humans use it). JIT-compiles at first import; the devel
-# base keeps nvcc available at runtime so that works on the box.
-RUN python -m pip install "git+https://github.com/NVlabs/nvdiffrast.git"
+# NOTE: nvdiffrast is intentionally NOT baked — it cannot build without a GPU/GL context and it
+# JIT-compiles its CUDA/GL kernels at first import on the box anyway, so baking gives nothing and
+# breaks the GPU-less Actions build. Install it at runtime (seconds): pip install nvdiffrast.
 
 # Gaussian-splatting rasterizers + knn (graphdeco standard + the leo-frank depth fork ExAvatar uses).
 RUN python -m pip install --no-build-isolation \
