@@ -1,5 +1,7 @@
 # splat-3dhuman docker image
 
+Archived on 2026-10-23. The splat project (a photoreal moving 3D human) stopped, so this image is no longer updated. The project notes and scripts are in the `splat` project in Brian's tsbasics workspace.
+
 Baked CUDA env for the splat project's 3D-human / diffusion work on vast.ai RTX 4090 (sm_89), so a
 fresh box is ready in ~2-4 min instead of a 15-25 min from-source build.
 
